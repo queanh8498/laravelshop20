@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\nguoidung;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Carbon\Carbon;
+use Mail;
+use App\Mail\RegisterMailer;
+
 
 class RegisterController extends Controller
 {
@@ -27,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/backend/danhsachsanpham'; 
 
     /**
      * Create a new controller instance.
@@ -48,9 +53,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'nd_id' => 'required|string|max:50',
+            'nd_taikhoan' => 'required|string|max:50',
+            'nd_matkhau' => 'required|string|min:6|confirmed',
+            'nd_hoten' => 'required|string|max:100',
+            'nd_gioitinh' => 'required',
+            'nd_email' => 'required|email:rfc,dns',
+            'nd_diachi' => 'required',
+            'nd_dienthoai' => 'required'
         ]);
     }
 
@@ -62,10 +72,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        $nd = nguoidung::create([
+            'nd_id' => $data['nd_id'],
+            'nd_taikhoan' => $data['nd_taikhoan'],
+            'nd_matkhau' => bcrypt($data['nd_matkhau']), //123456
+            'nd_hoten' => $data['nd_hoten'],
+            'nd_gioitinh' => $data['nd_gioitinh'],
+            'nd_email' => $data['nd_email'],
+            'nd_diachi' => $data['nd_diachi'],
+            'nd_dienthoai' => $data['nd_dienthoai'],
+            'nd_ngaytaomoi' => Carbon::now(), // Lấy ngày giờ hiện tại (sử dụng Carbon)
+            'nd_phanloai' => 1, // Mặc định là 1-Nhân viên
+            'nd_trangthai' => 2, // Mặc định là 1-Khả dụng
         ]);
+            //var_dump($nd);
+            // Gởi mail thông báo đăng ký thành công
+           Mail::to($nd['nd_email'])
+            ->send(new RegisterMailer($nd));
+
+            return $nd;
     }
 }
