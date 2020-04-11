@@ -23,6 +23,8 @@ Route::get('/backend', function () {
 });
 Route::get('/', 'FrontendController@index')->name('frontend.home');
 Route::get('/san-pham', 'FrontendController@product')->name('frontend.product');
+//Tạo trang Chi tiết Sản phẩm (product-detail)
+Route::get('/san-pham/{id}', 'FrontendController@productDetail')->name('frontend.productDetail');
 // //HOME FRONTEND
 // Route::get('/home', function () {
 //     return view('frontend.layouts.master');
