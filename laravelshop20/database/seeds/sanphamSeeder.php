@@ -33,7 +33,7 @@ class sanphamSeeder extends Seeder
                 'sp_ten' => 'Tủ Malm nâu 2 ngăn kéo',
                 'sp_giagoc' => '820000',
                 'sp_giaban' => '1100000',
-                'sp_hinh' => "tu.jpg",
+                'sp_hinh' => "tu2.jpg",
                 'sp_thongtin' => 'AAAAAAAAAAA',
                 'sp_ngaytaomoi' => $today->format('Y-m-d H:i:s'),
                 'sp_ngaycapnhat' => $today->format('Y-m-d H:i:s'),

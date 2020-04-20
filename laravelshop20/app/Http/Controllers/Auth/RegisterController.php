@@ -32,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/backend/danhsachsanpham'; 
+    protected $redirectTo = '/login/'; 
 
     /**
      * Create a new controller instance.
@@ -53,7 +53,6 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nd_id' => 'required|string|max:50',
             'nd_taikhoan' => 'required|string|max:50',
             'nd_matkhau' => 'required|string|min:6|confirmed',
             'nd_hoten' => 'required|string|max:100',
@@ -73,7 +72,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $nd = nguoidung::create([
-            'nd_id' => $data['nd_id'],
             'nd_taikhoan' => $data['nd_taikhoan'],
             'nd_matkhau' => bcrypt($data['nd_matkhau']), //123456
             'nd_hoten' => $data['nd_hoten'],
@@ -87,8 +85,8 @@ class RegisterController extends Controller
         ]);
             //var_dump($nd);
             // Gởi mail thông báo đăng ký thành công
-           Mail::to($nd['nd_email'])
-            ->send(new RegisterMailer($nd));
+             Mail::to($nd['nd_email'])
+             ->send(new RegisterMailer($nd));
 
             return $nd;
     }

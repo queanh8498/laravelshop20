@@ -12,13 +12,7 @@
                     <div class="card-body p-4">
                         <h1>Đăng ký</h1>
                         <p class="text-muted">Tạo tài khoản</p>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                </span>
-                            </div>
-                            <input class="form-control" type="text" placeholder="Mã tài khoản" name="nd_id" value="{{ old('nd_id') }}">
-                        </div>
+                        
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">

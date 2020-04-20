@@ -130,51 +130,50 @@ nav.stroke ul li a:hover:after {
 }
 </style>
 
-  <div class="container">
+  <div class="container" >
     <div id="header-nav">
         <nav class="navbar navbar-expand-md float-right sticky-top " style="display:inline-block;">
             <nav class="stroke">
             <!-- Links-->
               <ul class="navbar-nav" >
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class ="nav-link" href=""> <i class="fa fa-user-circle-o">&nbsp;&nbsp;</i>Sign In</a>
-                </li>
+                </li> -->
                 
                 <li class="nav-item">
-                  <a class ="nav-link" href=""><i class="fa fa-cart-plus" >&nbsp;&nbsp;</i>Your Cart</a>
+                  <a class ="nav-link" href="{{ route('app.setLocale', ['locale' => 'en']) }}">&nbsp;&nbsp;</i>EN</a>
                 </li>
                 <li class="nav-item">
+                      <a class ="nav-link" href="{{ route('app.setLocale', ['locale' => 'vi']) }}">&nbsp;&nbsp;</i>VI</a>
+                </li> 
+<!-- 
+                <li class="nav-item">
                     <a class ="nav-link" href=""><i class="fa fa-sign-out">&nbsp;&nbsp;</i>Sign Out</a>
-                  </li>
-                    <li class="nav-item">
-                      <a class ="nav-link" href=""><i class="fa fa-adn">&nbsp;&nbsp;</i>Administrate</a>
-                    </li> 
-
+                  </li> -->
+                   
                     <div class="wrap-icon-header flex-w flex-r-m">
-                      <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="0">
+                      <!-- <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="0">
                           <i class="zmdi zmdi-shopping-cart"></i>
-                      </div>
-                      <ngcart-summary class="js-show-cart" template-url="{{ asset('vendor/ngCart/template/ngCart/summary.html') }}"></ngcart-summary>
-                    
+                      </div> -->
+                      <ngcart-summary class="js-show-cart" template-url="{{ asset('vendor/ngCart/template/ngCart/summary.html') }}"></ngcart-summary>  
                     </div> 
-
               </ul>
             </nav>               
         </nav>              
       </div>              
     </div>
+    <br><br>
     <!-- close div container -->
-<br>
 <div></div>
     <div class="container text-center">
     <br>
-    <h2 style="font-weight:700;line-height: 1.5;margin-top: 6px; text-align: right;">H O U Z I E</h2>
+    <h2 style="font-weight:700;line-height: 0;margin-top: 0px; ">H O U Z I E</h2>
     
-      <div class="container-form-search">
+      <div class="container-form-search " style="margin-left:300px">
         <form id="form-search" method="get" action="" class="ng-pristine ng-valid">
-          <div class="input-search">
-          <input type="text" data-ng-model="textSearch" value ="" name="" auto-complete placeholder="Tìm kiếm sản phẩm..." id="input-search" class="ng-pristine ng-untouched ng-valid ui-autocomplete-input" autocomplete="off">
-          <span class="fa fa-search"></span>
+          <div class="input-search center-block">
+          <input type="text" data-ng-model="textSearch" value ="" name="" auto-complete placeholder="{{ __('laravelweb.search') }}." id="input-search" class="ng-pristine ng-untouched ng-valid ui-autocomplete-input" autocomplete="off">
+          <span class="fa fa-search" style="margin-left:200px"></span>
           </div><!--close input-search-->
         </form>
       </div><!--close container-form-search-->
@@ -192,22 +191,22 @@ nav.stroke ul li a:hover:after {
       <!-- Links-->
         <ul class="navbar-nav" >
           <li class="nav-item">
-            <a class ="nav-link" href="/sephora/backends/pages/">HOME</a>
+            <a class ="nav-link" href="{{ route('frontend.home') }}">{{ __('laravelweb.home') }}</a>
           </li>
           
           <li class="nav-item">
-            <a class ="nav-link" href="#">NEW</a>
+            <a class ="nav-link" href="{{ route('frontend.product') }}">{{ __('laravelweb.products') }}</a>
           </li>
           <li class="nav-item">
-            <a class ="nav-link" href="#">BRANDS</a>
+            <a class ="nav-link" href="#">{{ __('laravelweb.inspiration') }}</a>
           </li>
           
           <li class="nav-item">
-            <a class ="nav-link" href="#">CONTACT</a>
+            <a class ="nav-link" href="{{ route('frontend.contact') }}">{{ __('laravelweb.contact') }}</a>
           </li>
       <!--THANH THẢ XUỐNG-->
           <li class="nav-item dropdown">
-            <a class ="nav-link dropdown-toggle" href="#" data-toggle="dropdown">ABOUT </a>
+            <a class ="nav-link dropdown-toggle" href="#" data-toggle="dropdown">ABOUT</a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">a</a>
               <a class="dropdown-item" href="#">b</a>

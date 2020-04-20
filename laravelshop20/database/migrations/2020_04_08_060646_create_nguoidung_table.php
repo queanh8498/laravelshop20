@@ -14,7 +14,7 @@ class CreateNguoidungTable extends Migration
     public function up()
     {
         Schema::create('nguoidung', function (Blueprint $table) {
-            $table->string('nd_id');
+            $table->unsignedTinyInteger('nd_id')->autoIncrement();
             $table->string('nd_taikhoan');
             $table->string('nd_matkhau');
             $table->string('nd_hoten');
@@ -26,7 +26,6 @@ class CreateNguoidungTable extends Migration
             $table->unsignedTinyInteger('nd_phanloai')->default('1')->comment('Phân loại 1: nhân viên; 2: Khách hàng');
             $table->unsignedTinyInteger('nd_trangthai')->default('1')->comment('Trạng thái 1: Khả dụng; 2: Xóa-ed');
             
-            $table->primary(['nd_id']);
             $table->unique(['nd_taikhoan', 'nd_email', 'nd_dienthoai']);
         });
     }

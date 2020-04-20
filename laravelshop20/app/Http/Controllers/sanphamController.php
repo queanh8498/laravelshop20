@@ -51,9 +51,9 @@ class sanphamController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'sp_hinh' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048',
+            'sp_hinh' => 'required|file|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
             // Cú pháp dùng upload nhiều file
-            'sp_hinhanhlienquan.*' => 'file|image|mimes:jpeg,png,gif,webp|max:2048'
+            'sp_hinhanhlienquan.*' => 'file|image|mimes:jpg,jpeg,png,gif,webp|max:2048'
         ]);
         $sp = new sanpham();
         $sp->sp_id=$request->sp_id;
@@ -83,7 +83,7 @@ class sanphamController extends Controller
             foreach ($request->sp_hinhanhlienquan as $index => $file) {
                 
                 $file->storeAs('public/photos', $file->getClientOriginalName());
-                // Tạo đối tưọng HinhAnh
+                // Tạo đối tưọng hinhanh
                 $hinhanh = new hinhanh();
                 $hinhanh->sp_id = $sp->sp_id;
                 $hinhanh->ha_stt = ($index + 1);
@@ -145,12 +145,9 @@ class sanphamController extends Controller
         $sp->sp_giagoc = $request->sp_giagoc;
         $sp->sp_giaban = $request->sp_giaban;
         $sp->sp_thongtin = $request->sp_thongtin;
-        //$sp->sp_ngaytaomoi = $request->sp_ngaytaomoi;
-        //$sp->sp_ngaycapnhat = $request->sp_ngaycapnhat;
         $sp->sp_trangthai = $request->sp_trangthai;
         $sp->lsp_id = $request->lsp_id;
         $sp->cl_id =$request->cl_id;
-
 
         if($request->hasFile('sp_hinh'))
         {

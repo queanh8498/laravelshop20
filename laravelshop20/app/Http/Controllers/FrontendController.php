@@ -12,8 +12,8 @@ use App\sanpham;
 //use App\Chitietdonhang;
 use Carbon\Carbon;
 use DB;
-//use Mail;
-//use App\Mail\ContactMailer;
+use Mail;
+use App\Mail\ContactMailer;
 //use App\Mail\OrderMailer;
 
 class FrontendController extends Controller
@@ -90,7 +90,7 @@ class FrontendController extends Controller
 
         // Query Lấy các hình ảnh liên quan của các Sản phẩm đã được lọc
         $danhsachhinhanhlienquan = DB::table('hinhanh')
-                                ->where('sp_id', $id)
+                                ->where("sp_id", $id)
                                 ->get();
 
         // Query danh sách Loại
@@ -100,6 +100,21 @@ class FrontendController extends Controller
             ->with('sp', $sanpham)
             ->with('danhsachhinhanhlienquan', $danhsachhinhanhlienquan)
             ->with('danhsachloai', $danhsachloai);
+    }
+        /** * Action hiển thị view Liên hệ * GET /contact */ 
+    public function contact()
+    {
+        return view('frontend.pages.contact');
+    }
+        /** 
+     * Action gởi email với các lời nhắn nhận được từ khách hàng 
+     * POST /lien-he/goi-loi-nhan 
+     */ 
+    public function sendMailContactForm(Request $request)
+    {
+        $input = $request->all();
+        Mail::to('queanhst98@gmail.com')->send(new ContactMailer($input));
+        return $input;
     }
     
     /**

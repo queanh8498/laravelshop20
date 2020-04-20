@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"> -->
     <title>Houzie | @yield('title')</title>
 
     @yield('custom-css')

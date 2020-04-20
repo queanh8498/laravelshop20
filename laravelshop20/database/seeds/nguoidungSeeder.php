@@ -15,7 +15,7 @@ class nguoidungSeeder extends Seeder
         $today = new DateTime('2020-3-12 09:00:00');
 
         array_push($list, [
-            'nd_id'        => "N1",
+            'nd_id'        => 1,
             'nd_taikhoan'  => "queanh",
             'nd_matkhau'   => bcrypt('123456'),
             'nd_hoten'     => "Quế Anh",
@@ -26,7 +26,7 @@ class nguoidungSeeder extends Seeder
             'nd_ngaytaomoi'    => $today->format('Y-m-d H:i:s')          
         ]);
         array_push($list, [
-            'nd_id'        => "N2",
+            'nd_id'        => 2,
             'nd_taikhoan'  => "minhminh",
             'nd_matkhau'   => bcrypt('minhminh'),
             'nd_hoten'     => "Minh Minh",
@@ -37,7 +37,7 @@ class nguoidungSeeder extends Seeder
             'nd_ngaytaomoi'    => $today->format('Y-m-d H:i:s')          
         ]);
         array_push($list, [
-            'nd_id'        => "N3",
+            'nd_id'        => 3,
             'nd_taikhoan'  => "didi",
             'nd_matkhau'   => bcrypt('didi'),
             'nd_hoten'     => "Nguyễn Duy",
@@ -48,7 +48,7 @@ class nguoidungSeeder extends Seeder
             'nd_ngaytaomoi'    => $today->format('Y-m-d H:i:s')          
         ]);
         array_push($list, [
-            'nd_id'        => "N4",
+            'nd_id'        => 4,
             'nd_taikhoan'  => "dudu",
             'nd_matkhau'   => bcrypt('dudu'),
             'nd_hoten'     => "Dũ Trần",

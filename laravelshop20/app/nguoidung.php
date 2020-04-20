@@ -3,7 +3,9 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class nguoidung extends Model implements AuthenticatableContract
 {
@@ -13,7 +15,7 @@ class nguoidung extends Model implements AuthenticatableContract
     
     protected $guard_name = 'web';
 
-    protected $fillable     = ['nd_id','nd_taikhoan', 'nd_matkhau', 'nd_hoten', 'nd_gioitinh', 'nd_email', 'nd_diachi', 'nd_dienthoai', 'nd_ngaytaomoi','nd_phanloai', 'nd_trangthai'];
+    protected $fillable     = ['nd_taikhoan', 'nd_matkhau', 'nd_hoten', 'nd_gioitinh', 'nd_email', 'nd_diachi', 'nd_dienthoai', 'nd_ngaytaomoi','nd_phanloai', 'nd_trangthai'];
     protected $guarded      = ['nd_id'];
     protected $primaryKey   = 'nd_id';
     protected $dates        = ['nd_ngaytaomoi'];
@@ -39,6 +41,12 @@ class nguoidung extends Model implements AuthenticatableContract
     {
         return $this->nd_matkhau;
     }
+    /**
+     * Hàm dùng để trả về giá trị của cột "nv_ghinhodangnhap" session.
+     * Get the token value for the "remember me" session.
+     *
+     * @return string|null
+     */
     public function getRememberToken()
     {
         if (! empty($this->getRememberTokenName())) {

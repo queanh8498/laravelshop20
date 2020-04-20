@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\nguoidung;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Session;
 
 class BackendController extends Controller
 {
@@ -13,6 +14,8 @@ class BackendController extends Controller
         $nd = nguoidung::find($nd_id);
         $nd->nd_trangthai = 1; // Khả dụng
         $nd->save();
-        return redirect()->route('backend/danhsachsanpham');
+
+        Session::flash('alert-info', 'Tài khoản kích hoạt thành công!');
+        return redirect()->route('danhsachloai.index');
     }
 }

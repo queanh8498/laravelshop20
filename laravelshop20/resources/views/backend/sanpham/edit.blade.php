@@ -5,29 +5,29 @@ Sửa | Edit
 @endsection
 
 @section('feature-title')
-<b>Sửa | E D I T 
+<b>Sửa | E D I T
 </b>
 @endsection
 
+@section('custom-css')
+<link href="{{ asset('vendor/bootstrap-fileinput/css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+<link href="{{ asset('vendor/bootstrap-fileinput/themes/explorer-fas/theme.css') }}" media="all" rel="stylesheet" type="text/css"/>
+@endsession
 
 @section('main-content')
-<link href="{{ asset('vendor/bootstrap-fileinput/css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css"/>
-<link href="{{ asset('vendor/bootstrap-fileinput/themes/explorer-fas/theme.css') }}" media="all" rel="stylesheet" type="text/css"/>
-<link rel="stylesheet" href="{{ asset('vendor/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-
 <!-- show lỗi sai lên màn hình nếu có -->
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <!-- <li>{{ $error }}</li> -->
-                <li>Sản phẩm đã tồn tại</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
 @endif
 
-<form name="userForm" method="post" action="{{ route('danhsachsanpham.update',['id'=>$sp->sp_id]) }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('danhsachsanpham.update',['id'=>$sp->sp_id]) }}" enctype="multipart/form-data">
 <input type="hidden" name="_method" value="PUT" />
 {{ csrf_field() }}
   <div class="form-row">
@@ -50,7 +50,6 @@ Sửa | Edit
       <label for="sp_giaban">Gía bán</label>
       <input type="number" class="form-control" id="sp_giaban" name="sp_giaban" value="{{ old('sp_giaban',$sp->sp_giaban) }}" >
     </div>
-    
 
   </div>
 
@@ -85,25 +84,22 @@ Sửa | Edit
   <div class="form-group col-sm-10">
       <label for="sp_thongtin">Thông tin sản phẩm</label>
       <input type="text" class="form-control" id="sp_thongtin" name="sp_thongtin" value="{{ old('sp_thongtin',$sp->sp_thongtin) }}" >
-    </div>  
+    </div>
   </div>
 
     <div class="form-group">
-        <label for="sp_hinh">Hình đại diện</label>
         <div class="file-loading">
+            <label>Hình đại diện</label>
             <input id="sp_hinh" type="file" name="sp_hinh">
-        </div>
-    
-    </div>
-    <div class="form-row">
-        <div class="form-group">
-        <label>Hình ảnh liên quan sản phẩm</label>
-            <div class="file-loading">
-                <input id="sp_hinhanhlienquan" type="file" name="sp_hinhanhlienquan[]" multiple>
-            </div>
         </div>
     </div>
 
+    <div class="form-group">
+        <div class="file-loading">
+            <label>Hình ảnh liên quan sản phẩm</label>
+            <input id="sp_hinhanhlienquan" type="file" name="sp_hinhanhlienquan[]" multiple>
+        </div>
+    </div>
 
   <div class="form-row">
     <div class="form-group col-sm-3">
@@ -115,18 +111,15 @@ Sửa | Edit
 
     </div>
   </div>
+  
   <button type="submit" class="btn btn-dark">Lưu</button>
 
 </form>
-
-</div>
-
 
 @endsection
 
 
 @section('custom-scripts')
-<script src="{{ asset('vendor/angularjs/angular.min.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap-fileinput/js/plugins/sortable.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendor/bootstrap-fileinput/js/fileinput.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendor/bootstrap-fileinput/js/locales/fr.js') }}" type="text/javascript"></script>
@@ -152,10 +145,10 @@ Sửa | Edit
             ],
             initialPreviewConfig: [
                 {
-                    caption: "{{ $sp->sp_hinh }}", 
-                    size: {{ Storage::exists('public/photos/' . $sp->sp_hinh) ? Storage::size('public/photos/' . $sp->sp_hinh) : 0 }}, 
-                    width: "120px", 
-                    url: "{$url}", 
+                    caption: "{{ $sp->sp_hinh }}",
+                    size: {{ Storage::exists('public/photos/' . $sp->sp_hinh) ? Storage::size('public/photos/' . $sp->sp_hinh) : 0 }},
+                    width: "120px",
+                    url: "{$url}",
                     key: 1
                 },
             ]
@@ -169,9 +162,10 @@ Sửa | Edit
             append: false,
             showRemove: false,
             autoReplace: true,
+            autoOrientImage: false,
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
             overwriteInitial: false,
-            allowedFileExtensions: ["jpg", "gif", "png", "txt"],
+            allowedFileExtensions: ["jpg", "gif", "png", "txt","jpeg"],
             initialPreviewShowDelete: false,
             initialPreviewAsData: true,
             initialPreview: [
@@ -182,10 +176,10 @@ Sửa | Edit
             initialPreviewConfig: [
                 @foreach($sp->hinhanhlienquan()->get() as $index=>$hinhanh)
                 {
-                    caption: "{{ $hinhanh->ha_ten }}", 
-                    size: {{ Storage::exists('public/photos/' . $hinhanh->ha_ten) ? Storage::size('public/photos/' . $hinhanh->ha_ten) : 0 }}, 
-                    width: "120px", 
-                    url: "{$url}", 
+                    caption: "{{ $hinhanh->ha_ten }}",
+                    size: {{ Storage::exists('public/photos/' . $hinhanh->ha_ten) ? Storage::size('public/photos/' . $hinhanh->ha_ten) : 0 }},
+                    width: "120px",
+                    url: "{$url}",
                     key: {{ ($index + 1) }}
                 },
                 @endforeach
@@ -199,6 +193,10 @@ Sửa | Edit
 <script src="{{ asset('theme/adminlte/plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
 <script src="{{ asset('theme/adminlte/plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
 <script>
+$(document).ready(function(){
+
+});
+</script>
 @endsection
 
 
