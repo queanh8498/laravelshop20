@@ -23,6 +23,24 @@ return [
     'xemchitiet'=>'Xem chi tiết',
 
     //ngCart/sidebar-cart
-    'tongtien'=>'Tổng thành tiền'
+    'tongtien'=>'Tổng thành tiền',
+
+     // Thanh Footer
+     'thongtin' => 'Thông tin về Houzie',
+     'dayla' => 'Chúng tôi là Houzie',
+     'phongmoi' => 'Phòng mới',
+     'ytuong' => 'Ý tưởng',
+     'dayla' => 'Chúng tôi là Houzie',
+     'trogiup' => 'TRỢ GIÚP',
+     'theodoidonhang' => 'Theo dõi đơn hàng',
+     'hoantra' => 'Chính sách hoàn trả',
+     'vanchuyen' => 'Vận chuyển',
+     'faqs' => 'Câu hỏi thường gặp',
+     'lienhe' => 'LIÊN HỆ',
+     'lienhecuthe' => 'Nếu có bất kì câu hỏi nào? Hãy liên hệ với chúng tôi tại KDC 515, đường 30 Tháng 4, Phường Hưng Lợi, Quận Ninh Kiều, TP Cần Thơ hoặc gọi cho chúng tôi theo số 0328-400-007',
+     'bantin' => 'BẢN TIN',
+     'dangkybantin' => 'Đăng ký',
+     'lienhetoi' => 'Liên hệ chúng tôi',
+
 ];
 ?>

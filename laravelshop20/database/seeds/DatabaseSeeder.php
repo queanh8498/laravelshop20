@@ -12,6 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //thứ tự chạy seeder
+        $this->call(thanhtoanSeeder::class);
+        $this->call(vanchuyenSeeder::class);
          $this->call(donvitinhSeeder::class);
          $this->call(chatlieuSeeder::class);
          $this->call(loaisanphamSeeder::class);
@@ -20,7 +22,6 @@ class DatabaseSeeder extends Seeder
          $this->call(xuatxuSeeder::class);
          //$this->call(nhacungcapSeeder::class);
          $this->call(nguoidungSeeder::class);
-
          //$this->call(::class);
     }
 }

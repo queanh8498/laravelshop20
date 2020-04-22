@@ -12,6 +12,7 @@ use App\hinhanh;
 use Session;
 use Storage;
 
+
 class sanphamController extends Controller
 {
     /**
@@ -215,4 +216,19 @@ class sanphamController extends Controller
         Session::flash('alert-info', 'Xóa sản phẩm thành công');
         return redirect()->route('danhsachsanpham.index');
     }
+    /**
+     * Action hiển thị biểu mẫu xem trước khi in trên Web
+     */
+    public function print()
+    {
+        $ds_sanpham = sanpham::all();
+        $ds_loai    = loaisanpham::all();
+        return view('sanpham.print')
+            ->with('danhsachsanpham', $ds_sanpham)
+            ->with('danhsachloai', $ds_loai);
+    }
+    
+    
+    
+
 }

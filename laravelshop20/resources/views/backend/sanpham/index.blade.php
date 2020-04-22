@@ -83,6 +83,8 @@ td{
 
 <!-- nút thêm -->
 <a href="{{ route('danhsachsanpham.create') }}" class="btn-1">Create</a>
+<a href="{{ route('danhsachsanpham.print') }}" class="btn-1">Review PDF</a>
+
 <br><br>
 
 <table class="table table-bordered">

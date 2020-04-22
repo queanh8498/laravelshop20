@@ -23,6 +23,26 @@ return [
     'xemchitiet'=>'D E T A I L',
 
     //ngCart/sidebar-cart
-    'tongtien'=>'Summary'
+    'tongtien'=>'Summary',
+
+    
+    // Thanh Footer
+    'thongtin' => 'About HOUZIE',
+    'dayla' => 'This is HOUZIE',
+    'phongmoi' => 'Newrooms',
+    'ytuong' => 'Ideas',
+    'trogiup' => 'HELP',
+    'theodoidonhang' => 'Track Order',
+    'hoantra' => 'Return Policy',
+    'vanchuyen' => 'Shipping',
+    'faqs' => ' FAQs',
+    'lienhe' => 'GET IN TOUCH',
+    'lienhecuthe' => 'Any questions? Let us know in store at 30.4 Street, Hung Loi Ward, Ninh Kieu District, CT city or call us on 0328-400-007',
+    'bantin' => 'NEWSLETTER',
+    'dangkybantin' => 'Subscribe',
+    'lienhetoi' => 'Contact Us',
+
+
+   
 ];
 ?>

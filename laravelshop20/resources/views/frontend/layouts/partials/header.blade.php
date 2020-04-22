@@ -170,9 +170,9 @@ nav.stroke ul li a:hover:after {
     <h2 style="font-weight:700;line-height: 0;margin-top: 0px; ">H O U Z I E</h2>
     
       <div class="container-form-search " style="margin-left:300px">
-        <form id="form-search" method="get" action="" class="ng-pristine ng-valid">
+        <form id="form-search" method="get" action="{{ route('frontend.product')}}" class="ng-pristine ng-valid">
           <div class="input-search center-block">
-          <input type="text" data-ng-model="textSearch" value ="" name="" auto-complete placeholder="{{ __('laravelweb.search') }}." id="input-search" class="ng-pristine ng-untouched ng-valid ui-autocomplete-input" autocomplete="off">
+          <input type="text" data-ng-model="textSearch" value ="" name="search-product" auto-complete placeholder="{{ __('laravelweb.search') }}." id="input-search" class="ng-pristine ng-untouched ng-valid ui-autocomplete-input" autocomplete="off">
           <span class="fa fa-search" style="margin-left:200px"></span>
           </div><!--close input-search-->
         </form>

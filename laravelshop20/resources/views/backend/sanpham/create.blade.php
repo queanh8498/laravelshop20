@@ -27,8 +27,7 @@ Thêm mới sản phẩm | Create
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <!-- <li>{{ $error }}</li> -->
-                <li>Sản phẩm đã tồn tại</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
@@ -40,16 +39,7 @@ Thêm mới sản phẩm | Create
 {{ csrf_field() }}
   <!-- id, tên -->
   <div class="form-row">
-    <div class="form-group col-sm-3">
-      <label for="sp_id">ID</label>
-      <input type="text" class="form-control" id="sp_id" name="sp_id" placeholder="ID" value="{{ old('sp_id') }}"
-      ng-model="sp_id" ng-minlength="5" ng-maxlength="5" ng-pattern="/^S/" ng-required=true>
-      <span class="error" ng-show="userForm.sp_id.$error.required">Vui lòng nhập ID</span>
-      <span class="error" ng-show="userForm.sp_id.$error.pattern">ID phải bắt đầu bằng S</span>
-        <span class="error" ng-show="userForm.sp_id.$error.minlength">ID phải có 5 ký tự</span>
-        <span class="error" ng-show="userForm.sp_id.$error.maxlength">ID phải có 5 ký tự</span>
-        <span class="valid" ng-show="userForm.sp_id.$valid">Hợp lệ</span>
-    </div>
+    
     <!-- /^.+@gmail.com$/ -->
 
     <div class="form-group col-sm-7">

@@ -14,7 +14,7 @@ class CreateSanphamTable extends Migration
     public function up()
     {
         Schema::create('sanpham', function (Blueprint $table) {
-            $table->string('sp_id',5)->primary();
+            $table->unsignedBigInteger('sp_id')->autoIncrement();
             $table->string('sp_ten',100)->unique();
             $table->unsignedInteger('sp_giagoc')->default('0');
             $table->unsignedInteger('sp_giaban')->default('0');

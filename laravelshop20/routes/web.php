@@ -39,6 +39,10 @@ Route::post('/backend/activate/{nd_id}', 'BackendController@activate')->name('ac
 Route::resource('/backend/danhsachloai', 'loaisanphamController');
 //SẢN PHẨM
 Route::get('/backend/danhsachsanpham', 'sanphamController@index')->name('backend.danhsachsanpham.index');
+
+//PDF
+Route::get('/backend/danhsachsanpham/print', 'sanphamController@print')->name('danhsachsanpham.print');
+
 Route::resource('/backend/danhsachsanpham', 'sanphamController');
 
 

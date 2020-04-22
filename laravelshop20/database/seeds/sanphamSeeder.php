@@ -15,7 +15,7 @@ class sanphamSeeder extends Seeder
         $today = new DateTime('2020-02-18 09:00:00');  
         $list=[
             [
-                'sp_id' => "S0001",
+                'sp_id' => "1",
                 'sp_ten' => "Bộ bàn ăn Eames 4 ghế",
                 'sp_giagoc' => '1750000',
                 'sp_giaban' => '2100000',
@@ -29,7 +29,7 @@ class sanphamSeeder extends Seeder
                 'cl_id' => 'C01',
             ],
             [
-                'sp_id' => "S0002",
+                'sp_id' => "2",
                 'sp_ten' => 'Tủ Malm nâu 2 ngăn kéo',
                 'sp_giagoc' => '820000',
                 'sp_giaban' => '1100000',
@@ -43,7 +43,7 @@ class sanphamSeeder extends Seeder
                 'cl_id' => 'C01',
             ],
             [
-                'sp_id' => "S0003",
+                'sp_id' => "3",
                 'sp_ten' => 'Giường Malm đen',
                 'sp_giagoc' => '3200000',
                 'sp_giaban' => '3750000',
@@ -57,7 +57,7 @@ class sanphamSeeder extends Seeder
                 'cl_id' => 'C01',
             ],
             [
-                'sp_id' => "S0004",
+                'sp_id' => "4",
                 'sp_ten' => 'Bộ Sofa Landrona xám chân kim loại',
                 'sp_giagoc' => '15000000',
                 'sp_giaban' => '15450000',
@@ -71,7 +71,7 @@ class sanphamSeeder extends Seeder
                 'cl_id' => 'C04',
             ],
             [
-                'sp_id' => "S0005",
+                'sp_id' => "5",
                 'sp_ten' => 'Bàn Mickie nâu đen',
                 'sp_giagoc' => '1200000',
                 'sp_giaban' => '1530000',
@@ -85,7 +85,7 @@ class sanphamSeeder extends Seeder
                 'cl_id' => 'C01',
             ],
             [
-                'sp_id' => "S0006",
+                'sp_id' => "6",
                 'sp_ten' => 'Ghế Pello kem',
                 'sp_giagoc' => '450000',
                 'sp_giaban' => '652000',
@@ -99,7 +99,7 @@ class sanphamSeeder extends Seeder
                 'cl_id' => 'C04',
             ],
             [
-                'sp_id' => "S0007",
+                'sp_id' => "7",
                 'sp_ten' => 'Đèn đứng Pello trắng',
                 'sp_giagoc' => '210000',
                 'sp_giaban' => '360000',
